@@ -1,0 +1,219 @@
+:root {
+    /* Cyber Purple Theme */
+    --bg-color: #0f0a1a;
+    --display-bg: #1a1029;
+    --button-bg: #2a1d3f;
+    --button-text: #e0d6ff;
+    --button-hover: #3a2a4f;
+    --button-active: #4a3a6f;
+    --operator-bg: #9c4dff;
+    --operator-hover: #b56eff;
+    --operator-active: #ce8eff;
+    --function-bg: #5a4a7f;
+    --function-hover: #6a5a8f;
+    --function-active: #7a6a9f;
+    --equals-bg: #6a00f4;
+    --equals-hover: #7a1aff;
+    --equals-active: #8a3aff;
+    --clear-bg: #ff3864;
+    --clear-hover: #ff5080;
+    --clear-active: #ff689c;
+    --text-color: #ffffff;
+}
+
+.light-mode {
+    /* Light Mode Variant */
+    --bg-color: #f5f0ff;
+    --display-bg: #ffffff;
+    --button-bg: #e6e0ff;
+    --button-text: #3a2a5f;
+    --button-hover: #d6d0ef;
+    --button-active: #c6c0df;
+    --operator-bg: #9c4dff;
+    --operator-hover: #b56eff;
+    --operator-active: #ce8eff;
+    --function-bg: #d0c0ff;
+    --function-hover: #c0b0ef;
+    --function-active: #b0a0df;
+    --equals-bg: #6a00f4;
+    --equals-hover: #7a1aff;
+    --equals-active: #8a3aff;
+    --clear-bg: #ff3864;
+    --clear-hover: #ff5080;
+    --clear-active: #ff689c;
+    --text-color: #2a1a4f;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calculator {
+    width: 300px;
+    background-color: var(--bg-color);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.display {
+    background-color: var(--display-bg);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    font-size: 2.5em;
+    height: 60px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.1s;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    user-select: none;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+.operator {
+    background-color: var(--operator-bg);
+    color: white;
+}
+
+.operator:hover {
+    background-color: var(--operator-hover);
+}
+
+.operator:active {
+    background-color: var(--operator-active);
+}
+
+.function {
+    background-color: var(--function-bg);
+}
+
+.function:hover {
+    background-color: var(--function-hover);
+}
+
+.function:active {
+    background-color: var(--function-active);
+}
+
+.clear {
+    background-color: var(--clear-bg);
+}
+
+.clear:hover {
+    background-color: var(--clear-hover);
+}
+
+.clear:active {
+    background-color: var(--clear-active);
+}
+
+.equals {
+    background-color: var(--equals-bg);
+    color: white;
+    grid-column: span 2;
+    width: auto;
+    border-radius: 30px;
+}
+
+.equals:hover {
+    background-color: var(--equals-hover);
+}
+
+.equals:active {
+    background-color: var(--equals-active);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--button-bg);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--button-hover);
+}
+
+@keyframes neon-glow {
+    0% { box-shadow: 0 0 5px rgba(255, 159, 10, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(255, 159, 10, 0.7); }
+    100% { box-shadow: 0 0 5px rgba(255, 159, 10, 0.3); }
+}
+
+button.operator:active,
+button.equals:active {
+    animation: neon-glow 0.3s ease;
+}
+
+/* Add a subtle glow to operator buttons when hovered */
+.operator:hover, .equals:hover {
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3em;
+    }
+    
+    .display {
+        font-size: 2em;
+        height: 50px;
+        padding: 15px;
+    }
+}
